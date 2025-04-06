@@ -1,19 +1,25 @@
-
 import React from "react";
+
 const Footer = () => {
-  return <footer className="w-full bg-white py-0">
-      <div className="section-container">
-        <p className="text-center text-gray-600 text-sm">
-          This template takes inspiration from{" "}
-          <a href="https://x.com/BrettFromDJ" target="_blank" rel="noopener noreferrer" className="text-pulse-500 hover:underline">
-            DesignJoy's
-          </a>{" "}
-          BUILD WARS design, built entirely with Lovable by{" "}
-          <a href="https://x.com/rezaul_arif" target="_blank" rel="noopener noreferrer" className="text-pulse-500 hover:underline">
-            Rezaul Arif
+  return (
+    <footer className="w-full bg-white py-8 border-t border-gray-200">
+      <div className="container px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="text-center md:text-left mb-4 md:mb-0">
+          <p className="text-gray-600 text-sm">
+            &copy; {new Date().getFullYear()} Justech AI. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-xs mt-1">
+            Empowering Non-Profits with AI Technology.
+          </p>
+        </div>
+        <div className="flex space-x-6">
+          <a href="mailto:contact.justech.ai@gmail.com" className="text-gray-600 hover:text-gray-800 text-sm">
+            contact.justech.ai@gmail.com
           </a>
-        </p>
+        </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

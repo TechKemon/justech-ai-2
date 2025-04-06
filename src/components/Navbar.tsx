@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -52,11 +51,11 @@ const Navbar = () => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Pulse Robot"
+          aria-label="Justech AI Home"
         >
           <img 
-            src="/logo.svg" 
-            alt="Pulse Robot Logo" 
+            src="/justech-ai-logo.svg" 
+            alt="Justech AI Logo" 
             className="h-7 sm:h-8" 
           />
         </a>
@@ -73,8 +72,10 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a href="#approach" className="nav-link">Our Approach</a>
+          <a href="#solutions" className="nav-link">Solutions</a>
+          <a href="#impact" className="nav-link">Impact</a>
+          <a href="#contact" className="nav-link">Contact Us</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -106,24 +107,44 @@ const Navbar = () => {
             Home
           </a>
           <a 
-            href="#features" 
+            href="#approach" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            About
+            Our Approach
           </a>
           <a 
-            href="#details" 
+            href="#solutions" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            Contact
+            Solutions
+          </a>
+          <a
+            href="#impact"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Impact
+          </a>
+          <a
+            href="#contact"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Contact Us
           </a>
         </nav>
       </div>
