@@ -54,7 +54,7 @@ const Navbar = () => {
           aria-label="Justech AI Home"
         >
           <img 
-            src="/justech-ai-logo.svg" 
+            src="public/logo1.png" 
             alt="Justech AI Logo" 
             className="h-7 sm:h-8" 
           />
