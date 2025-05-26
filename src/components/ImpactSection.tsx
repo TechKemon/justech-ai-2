@@ -1,4 +1,6 @@
+
 import React from 'react';
+import AnimatedCounter from './AnimatedCounter';
 
 const ImpactSection = () => {
   return (
@@ -13,33 +15,36 @@ const ImpactSection = () => {
           <p className="text-lg text-gray-800 font-semibold">
             We have a proven track record of developing impactful technology products.
           </p>
-          {/* Optional: Add specifics like years or project numbers if available
-          <p className="text-md text-gray-600 mt-1">
-            (e.g., 5+ years experience, 20+ successful projects)
-          </p>
-          */}
         </div>
 
-        {/* Highlight Impact - Use Cards for Visual Appeal */}
+        {/* Highlight Impact - Use Cards for Visual Appeal with Animated Counters */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {/* Stat 1 */}
-          <div className="bg-pulse-50 p-6 rounded-lg text-center border border-pulse-100">
-            <p className="text-3xl font-bold text-pulse-600">40%+</p>
+          <div className="bg-pulse-50 p-6 rounded-lg text-center border border-pulse-100 hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl font-bold text-pulse-600">
+              <AnimatedCounter target={40} suffix="+" />%
+            </p>
             <p className="text-gray-700 mt-1">Increase in User Engagement</p>
           </div>
           {/* Stat 2 */}
-          <div className="bg-green-50 p-6 rounded-lg text-center border border-green-100">
-            <p className="text-3xl font-bold text-green-600">Faster</p>
+          <div className="bg-green-50 p-6 rounded-lg text-center border border-green-100 hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl font-bold text-green-600">
+              <AnimatedCounter target={3} />x Faster
+            </p>
             <p className="text-gray-700 mt-1">Response Times for Inquiries</p>
           </div>
           {/* Stat 3 */}
-          <div className="bg-blue-50 p-6 rounded-lg text-center border border-blue-100">
-            <p className="text-3xl font-bold text-blue-600">Wider</p>
-            <p className="text-gray-700 mt-1">Reach to Underserved Populations</p>
+          <div className="bg-blue-50 p-6 rounded-lg text-center border border-blue-100 hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl font-bold text-blue-600">
+              <AnimatedCounter target={250} suffix="%" />
+            </p>
+            <p className="text-gray-700 mt-1">Wider Reach to Underserved Populations</p>
           </div>
           {/* Stat 4 */}
-          <div className="bg-yellow-50 p-6 rounded-lg text-center border border-yellow-100">
-            <p className="text-3xl font-bold text-yellow-600">30+ hrs/wk</p>
+          <div className="bg-yellow-50 p-6 rounded-lg text-center border border-yellow-100 hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl font-bold text-yellow-600">
+              <AnimatedCounter target={30} />+ hrs/wk
+            </p>
             <p className="text-gray-700 mt-1">Staff Time Freed Up</p>
           </div>
         </div>
@@ -56,4 +61,4 @@ const ImpactSection = () => {
   );
 };
 
-export default ImpactSection; 
+export default ImpactSection;

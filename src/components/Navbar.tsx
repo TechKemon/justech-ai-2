@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -60,11 +61,11 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Made bigger and bolder */}
         <nav className="hidden md:flex space-x-8">
           <a 
             href="#" 
-            className="nav-link"
+            className="text-lg font-bold text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full"
             onClick={(e) => {
               e.preventDefault();
               scrollToTop();
@@ -72,10 +73,10 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#approach" className="nav-link">Our Approach</a>
-          <a href="#solutions" className="nav-link">Solutions</a>
-          <a href="#impact" className="nav-link">Impact</a>
-          <a href="#contact" className="nav-link">Contact Us</a>
+          <a href="#approach" className="text-lg font-bold text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full">Our Approach</a>
+          <a href="#solutions" className="text-lg font-bold text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full">Solutions</a>
+          <a href="#impact" className="text-lg font-bold text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full">Impact</a>
+          <a href="#contact" className="text-lg font-bold text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full">Contact Us</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -96,7 +97,7 @@ const Navbar = () => {
         <nav className="flex flex-col space-y-8 items-center mt-8">
           <a 
             href="#" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={(e) => {
               e.preventDefault();
               scrollToTop();
@@ -108,7 +109,7 @@ const Navbar = () => {
           </a>
           <a 
             href="#approach" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
@@ -118,7 +119,7 @@ const Navbar = () => {
           </a>
           <a 
             href="#solutions" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
@@ -128,7 +129,7 @@ const Navbar = () => {
           </a>
           <a
             href="#impact"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
@@ -138,7 +139,7 @@ const Navbar = () => {
           </a>
           <a
             href="#contact"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
