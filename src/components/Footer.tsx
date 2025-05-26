@@ -1,4 +1,5 @@
 import React from "react";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const Footer = () => {
   return (
@@ -12,8 +13,12 @@ const Footer = () => {
             Empowering Non-Profits with AI Technology.
           </p>
         </div>
-        <div className="flex space-x-6">
-          <a href="mailto:contact.justech.ai@gmail.com" className="text-gray-600 hover:text-gray-800 text-sm">
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+          <PrivacyPolicy />
+          <a
+            href="mailto:contact.justech.ai@gmail.com"
+            className="text-gray-600 hover:text-gray-800 text-sm"
+          >
             contact.justech.ai@gmail.com
           </a>
         </div>
