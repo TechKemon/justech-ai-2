@@ -44,8 +44,8 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a 
-          href="#" 
+        <a
+          href="#"
           className="flex items-center space-x-2"
           onClick={(e) => {
             e.preventDefault();
@@ -53,10 +53,10 @@ const Navbar = () => {
           }}
           aria-label="Justech AI Home"
         >
-          <img 
-            src="public/logo1.png" 
-            alt="Justech AI Logo" 
-            className="h-7 sm:h-8" 
+          <img
+            src="/logo1.png" // Correct path for files in the public directory
+            alt="Justech AI Logo"
+            className="h-7 sm:h-8"
           />
         </a>
 
