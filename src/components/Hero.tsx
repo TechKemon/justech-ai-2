@@ -102,7 +102,7 @@ const Hero = () => {
               style={{ animationDelay: "0.5s" }} 
               className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-base sm:text-lg text-left"
             >
-              Justech AI partners with non-profits to build scalable, easy-to-use AI tools that extend reach, automate tasks, and empower your team to focus on your core mission.
+              Justech AI partners with non-profits and social enterprises to build scalable, easy-to-use AI tools that extend reach, automate tasks, and empower your team to focus on your core mission.
             </p>
             
             <div 
