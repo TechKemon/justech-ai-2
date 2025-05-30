@@ -16,6 +16,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          /* add your custom routes of privacy & T&C here */
+          <Route path="/privacy" element={<div>Privacy Policy</div>} />
+          <Route path="/terms" element={<div>Terms and Conditions</div>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
