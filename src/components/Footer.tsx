@@ -22,7 +22,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-              Empowering Non-Profits with cutting-edge AI Technology to amplify impact and drive meaningful change.
+              Empowering companies and government institutions with cutting-edge AI technology to amplify impact in education, healthcare, and governance.
             </p>
             <div className="flex space-x-4">
               {/* Social links placeholder - can be added later */}

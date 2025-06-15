@@ -2,13 +2,25 @@
 import React, { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import Turnstile from './Turnstile';
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const { toast } = useToast();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!turnstileToken) {
+      toast({
+        title: "Verification Required",
+        description: "Please complete the 'Verify you're human' check.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     const formData = new FormData(event.currentTarget);
@@ -17,24 +29,25 @@ const ContactSection = () => {
       non_profit_name: formData.get('nonProfitName') as string,
       email: formData.get('email') as string,
       message: formData.get('message') as string,
+      token: turnstileToken,
     };
 
-    console.log("Submitting form data:", data);
+    console.log("Submitting form data to edge function:", data);
 
     try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([data]);
+      const { data: responseData, error } = await supabase.functions.invoke('contact', {
+        body: data,
+      });
 
       if (error) {
-        console.error('Error inserting data:', error);
+        console.error('Error invoking function:', error);
         toast({
           title: "Error",
-          description: "There was an error submitting your message. Please try again.",
+          description: error.message || "There was an error submitting your message. Please try again.",
           variant: "destructive",
         });
       } else {
-        console.log('Contact form submitted successfully');
+        console.log('Function invoked successfully:', responseData);
         toast({
           title: "Success!",
           description: "Thank you for your message! We will get back to you soon.",
@@ -50,6 +63,10 @@ const ContactSection = () => {
       });
     } finally {
       setIsSubmitting(false);
+      setTurnstileToken(null);
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     }
   };
 
@@ -60,7 +77,7 @@ const ContactSection = () => {
           Let's Connect
         </h2>
         <p className="text-center text-lg text-gray-700 mb-10">
-          Ready to explore how AI can amplify your non-profit's mission? Reach out to us!
+          Ready to see how our expertise in AI can transform your organization's impact? Let's connect and discuss your next project.
         </p>
 
         {/* Contact Form */}
@@ -77,7 +94,7 @@ const ContactSection = () => {
             />
           </div>
           <div>
-            <label htmlFor="nonProfitName" className="block text-sm font-medium text-gray-700 mb-1">Non-Profit Name</label>
+            <label htmlFor="nonProfitName" className="block text-sm font-medium text-gray-700 mb-1">Company / Institution Name</label>
             <input 
               type="text" 
               name="nonProfitName" 
@@ -109,10 +126,13 @@ const ContactSection = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-pulse-500 focus:border-pulse-500 disabled:opacity-50"
             ></textarea>
           </div>
+          <div className="flex justify-center">
+            <Turnstile onTokenChange={setTurnstileToken} />
+          </div>
           <div>
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !turnstileToken}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pulse-500 hover:bg-pulse-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pulse-500 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ backgroundColor: '#FE5C02' }}
             >
