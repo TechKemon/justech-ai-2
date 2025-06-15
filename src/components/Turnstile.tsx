@@ -19,8 +19,8 @@ interface TurnstileProps {
   onTokenChange: (token: string | null) => void;
 }
 
-// This is a test site key. Replace with your own from the Cloudflare dashboard.
-const TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
+// Real Cloudflare Turnstile site key
+const TURNSTILE_SITE_KEY = '0x4AAAAAABhGQW78wAB2BaBS';
 
 const Turnstile: React.FC<TurnstileProps> = ({ onTokenChange }) => {
   const ref = useRef<HTMLDivElement>(null);

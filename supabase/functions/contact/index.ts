@@ -3,8 +3,8 @@ import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { corsHeaders } from '../_shared/cors.ts'
 
-// This is a test secret key. Replace it by setting a secret in your Supabase project.
-const TURNSTILE_SECRET_KEY_TEST = '1x0000000000000000000000000000000AA';
+// Real Cloudflare Turnstile secret key
+const TURNSTILE_SECRET_KEY = '0x4AAAAAABhGQUvctRLMVtBuFylfj7rbgQo';
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -21,9 +21,8 @@ serve(async (req) => {
         });
     }
 
-    // IMPORTANT: Set your Cloudflare Turnstile secret key in your Supabase project secrets.
-    // Go to Project Settings > Edge Functions and add a new secret named CLOUDFLARE_TURNSTILE_SECRET_KEY.
-    const secretKey = Deno.env.get('CLOUDFLARE_TURNSTILE_SECRET_KEY') || TURNSTILE_SECRET_KEY_TEST;
+    // Use the real Cloudflare Turnstile secret key or fallback to environment variable
+    const secretKey = Deno.env.get('CLOUDFLARE_TURNSTILE_SECRET_KEY') || TURNSTILE_SECRET_KEY;
     
     const formData = new FormData();
     formData.append('secret', secretKey);

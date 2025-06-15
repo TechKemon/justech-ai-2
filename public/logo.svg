@@ -1,6 +1,12 @@
 
 <svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="0" y="30" style="font-family: Brockmann, Inter, sans-serif; font-size: 30px; font-weight: 500;" fill="#010101">
+  <!-- Modern geometric background -->
+  <rect x="0" y="8" width="32" height="24" rx="4" fill="#f97316" opacity="0.1"/>
+  <rect x="4" y="12" width="24" height="16" rx="2" fill="#f97316" opacity="0.2"/>
+  <rect x="8" y="16" width="16" height="8" rx="1" fill="#f97316"/>
+  
+  <!-- Text with modern typography -->
+  <text x="42" y="30" style="font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em;" fill="#1a1a1a">
     Justech <tspan fill="#f97316">AI</tspan>
   </text>
 </svg>

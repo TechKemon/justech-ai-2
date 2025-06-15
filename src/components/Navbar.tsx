@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,8 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { href: "#", label: "Home", onClick: scrollToTop },
+    { href: "/", label: "Home", isLink: true },
+    { href: "/portfolio", label: "Portfolio", isLink: true },
     { href: "#approach", label: "Our Approach" },
     { href: "#solutions", label: "Solutions" },
     { href: "#impact", label: "Impact" },
@@ -55,37 +57,43 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center space-x-3 group"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
-            }}
             aria-label="Justech AI Home"
           >
             <div className="relative">
               <img
-                src="/logo1.png"
+                src="/logo.svg"
                 alt="Justech AI Logo"
                 className="h-8 sm:h-10 transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-pulse-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                onClick={item.onClick}
-                className="relative px-4 py-2 text-base font-semibold text-gray-700 hover:text-pulse-600 transition-all duration-300 rounded-lg hover:bg-pulse-50 group"
-              >
-                <span className="relative z-10">{item.label}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-pulse-500/10 to-pulse-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </a>
+              item.isLink ? (
+                <Link
+                  key={index}
+                  to={item.href}
+                  className="relative px-4 py-2 text-base font-semibold text-gray-700 hover:text-pulse-600 transition-all duration-300 rounded-lg hover:bg-pulse-50 group"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pulse-500/10 to-pulse-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="relative px-4 py-2 text-base font-semibold text-gray-700 hover:text-pulse-600 transition-all duration-300 rounded-lg hover:bg-pulse-50 group"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pulse-500/10 to-pulse-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+              )
             ))}
           </nav>
 
@@ -147,7 +155,7 @@ const Navbar = () => {
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
-              <img src="/logo1.png" alt="Justech AI" className="h-8" />
+              <img src="/logo.svg" alt="Justech AI" className="h-8" />
               <button
                 onClick={toggleMenu}
                 className="p-2 text-gray-500 hover:text-gray-700 transition-colors duration-200"
@@ -160,20 +168,25 @@ const Navbar = () => {
             <nav className="flex-1 px-6 py-8">
               <div className="space-y-2">
                 {navItems.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.onClick) {
-                        e.preventDefault();
-                        item.onClick();
-                      }
-                      toggleMenu();
-                    }}
-                    className="block px-4 py-4 text-lg font-semibold text-gray-700 hover:text-pulse-600 hover:bg-pulse-50 rounded-xl transition-all duration-300 transform hover:translate-x-2"
-                  >
-                    {item.label}
-                  </a>
+                  item.isLink ? (
+                    <Link
+                      key={index}
+                      to={item.href}
+                      onClick={toggleMenu}
+                      className="block px-4 py-4 text-lg font-semibold text-gray-700 hover:text-pulse-600 hover:bg-pulse-50 rounded-xl transition-all duration-300 transform hover:translate-x-2"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={index}
+                      href={item.href}
+                      onClick={toggleMenu}
+                      className="block px-4 py-4 text-lg font-semibold text-gray-700 hover:text-pulse-600 hover:bg-pulse-50 rounded-xl transition-all duration-300 transform hover:translate-x-2"
+                    >
+                      {item.label}
+                    </a>
+                  )
                 ))}
               </div>
             </nav>

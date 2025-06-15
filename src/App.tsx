@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Portfolio from "./pages/Portfolio";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
@@ -18,7 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          /* add your custom routes of privacy & T&C here */
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<div>Terms and Conditions</div>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
