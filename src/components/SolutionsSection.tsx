@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { Bot, Users, Database, Megaphone, Palette } from 'lucide-react';
 
 const SolutionsSection = () => {
   const solutions = [
     {
-      icon: Bot,
+      image: "/lovable-uploads/592b039a-602c-47c2-a7d1-4b63a7b9415b.png",
       title: "Intelligent Chatbots",
       description: "Provide instant support, answer FAQs, guide users to resources, and manage volunteer inquiries 24/7.",
       benefits: [
@@ -16,7 +15,7 @@ const SolutionsSection = () => {
       ]
     },
     {
-      icon: Users,
+      image: "/lovable-uploads/03b24bf3-b5d5-4012-9819-374900283d03.png",
       title: "User Management System",
       description: "Comprehensive user management platform for volunteers, donors, and beneficiaries with automated workflows.",
       benefits: [
@@ -27,7 +26,7 @@ const SolutionsSection = () => {
       ]
     },
     {
-      icon: Database,
+      image: "/lovable-uploads/3aa1d52e-ce85-4421-b9ae-7cbe00b29436.png",
       title: "Database Management",
       description: "Intelligent data organization and analytics to help you understand your impact and optimize operations.",
       benefits: [
@@ -38,7 +37,7 @@ const SolutionsSection = () => {
       ]
     },
     {
-      icon: Megaphone,
+      image: "/lovable-uploads/dc82d31b-e155-4bd3-a712-af21090c1257.png",
       title: "Marketing Automation",
       description: "AI-driven marketing tools to amplify your message and reach the right audience at the right time.",
       benefits: [
@@ -49,7 +48,7 @@ const SolutionsSection = () => {
       ]
     },
     {
-      icon: Palette,
+      image: "/lovable-uploads/43eeaa92-d62a-490c-bc85-688dbc3058a1.png",
       title: "Brand Management",
       description: "Maintain consistent, professional branding across all your digital touchpoints and communications.",
       benefits: [
@@ -75,7 +74,6 @@ const SolutionsSection = () => {
       {/* Solutions Grid */}
       <div className="max-w-7xl mx-auto space-y-16">
         {solutions.map((solution, index) => {
-          const IconComponent = solution.icon;
           return (
             <div 
               key={index} 
@@ -84,7 +82,11 @@ const SolutionsSection = () => {
               } items-center gap-8 hover:shadow-xl transition-shadow duration-300`}
             >
               <div className="lg:w-1/3 text-center lg:text-left">
-                <IconComponent className="w-16 h-16 text-pulse-500 mx-auto lg:mx-0 mb-4" />
+                <img 
+                  src={solution.image} 
+                  alt={solution.title}
+                  className="w-32 h-32 mx-auto lg:mx-0 mb-4 object-contain"
+                />
                 <h3 className="text-2xl font-bold mb-3">{solution.title}</h3>
                 <p className="text-gray-600 text-lg">{solution.description}</p>
               </div>
